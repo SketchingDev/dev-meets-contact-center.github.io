@@ -9,6 +9,9 @@ url: https://devmeetscontactcenter.com
 atom_feed:
   path: # blank (default) uses feed.xml
 
+sass:
+  sass_dir: ./_sass
+
 # Build settings
 markdown: kramdown
 
