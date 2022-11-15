@@ -9,6 +9,9 @@ url: https://devmeetscontactcenter.com
 atom_feed:
   path: # blank (default) uses feed.xml
 
+sass:
+  sass_dir: _sass
+
 # Build settings
 markdown: kramdown
 
@@ -24,16 +27,6 @@ author:
 whitelist:
   - jekyll-feed
   - jekyll-seo-tag
-
-collections:
-  sketchnotes:
-    output: true
-    permalink: /:collection/:title.html
-
-feed:
-  collections:
-    - sketchnotes
-    - posts
 
 permalink: /blog/:title.html
 
