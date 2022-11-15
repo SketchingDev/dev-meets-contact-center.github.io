@@ -1,0 +1,5 @@
+main:
+  - title: "blog"
+    url: /
+  - title: "subscribe"
+    url: /subscribe
