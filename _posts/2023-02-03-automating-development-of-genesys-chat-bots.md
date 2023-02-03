@@ -172,7 +172,7 @@ scenarios:
     - waitForReplyContaining: We hope you have a nice day, goodbye
 ```
 
-# Conclusion
+## Conclusion
 
 This has been a whistle-stop tour of the pipeline and the benefits it brought us. Hopefully, it has provided enough
 information for you to get started with your own pipelines.
