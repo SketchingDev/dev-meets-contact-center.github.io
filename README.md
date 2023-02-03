@@ -3,7 +3,11 @@
 ## Development
 
 ```shell
-bundle install --path vendor/bundle
+bundle config set --local path 'vendor/bundle'
+```
+
+```shell
+bundle install
 bundle exec jekyll serve --livereload
 ```
 

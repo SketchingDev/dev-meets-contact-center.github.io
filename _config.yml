@@ -1,9 +1,7 @@
 title: Dev meets Contact-Center
 title_separator: "-"
 locale: en-GB
-description: "Developer's journey into Contact-Center"
-favicon: "/assets/images/logo.png"
-avatar: "/assets/images/logo.png"
+description: "Software Developer + Contact-Center"
 comments: false
 url: https://devmeetscontactcenter.com
 atom_feed:
