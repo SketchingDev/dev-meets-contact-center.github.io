@@ -21,7 +21,7 @@ every change and will:
   5. Notifies a QA Engineer to perform exploratory testing
   6. Once approved by a QA Engineer then automatically deploy changes to production
 
-The obvious benefits of this are:
+The more obvious benefits of this are:
 - Reducing the feedback loop from hours/days to seconds/minutes
 - Deployments of bots and their dependencies that are identical across environments. If it works in UAT, it will work
   in Prod.
