@@ -1,11 +1,11 @@
 ---
 layout: blog-post
-title: "Automating development of Genesys chat bots"
+title: "Automating development of Genesys chatbots"
 date: 2023-02-03 00:00:00
-image-base: /assets/images/posts/2023-02-03-automating-development-of-genesys-chat-bots
+image-base: /assets/images/posts/2023-02-03-automating-development-of-genesys-chatbots
 ---
 
-When developing bots at OVO we aim to reduce the feedback loop as much as possible, as a short feedback loop means we
+When developing chatbots at OVO we aim to reduce the feedback loop as much as possible, as a short feedback loop means we
 can adapt to customer feedback more quickly. However, to ensure quality is maintained (even increased) we leverage
 automation as much as possible. In this article, I'll explain the automation pipeline I've created that achieves this...
 
@@ -23,7 +23,7 @@ every change and will:
 
 The more obvious benefits of this are:
 - Reducing the feedback loop from hours/days to seconds/minutes
-- Deployments of bots and their dependencies that are identical across environments. If it works in UAT, it will work
+- Deployments of chatbots and their dependencies that are identical across environments. If it works in UAT, it will work
   in Prod.
 - Assurance of quality through automated tests. Every change, no matter how small is subjected to over 40 end-to-end
   tests - and since they are run concurrently they take less than 2 mins
@@ -32,7 +32,7 @@ The more obvious benefits of this are:
 Let's break down the pipeline and examine each part of it...
 
 ### Source-control
-All the flows, bots, dependencies, tests, and even the definition of the pipeline itself live in
+All the flows, chatbots, dependencies, tests, and even the definition of the pipeline itself live in
 source-control - which for OVO is [GitHub](https://github.com/). This git repository forms the source of truth.
 
 When an update or revert occurs against anything in the repository then it is tracked (by virtue of it being
@@ -91,7 +91,7 @@ workflows:
 way you know that the deployments will always match what is in source-control.
 
 Since many [providers support Terraform](https://registry.terraform.io/browse/providers) we can define everything in
-one place; from bots, flows, data-actions to their backend services. Here's an example of a Terraform definition:
+one place; from chatbots, flows, data-actions to their backend services. Here's an example of a Terraform definition:
 
 ```terraform
 resource "genesyscloud_integration_action" "create_survery_data_action" {
@@ -147,15 +147,15 @@ resource "genesyscloud_webdeployments_deployment" "survey_deployment" {
 ### Automated testing
 ![Pipeline with automated testing tasks highlighted]({{ page.image-base }}/pipeline-testing.png)
 
-The tools we use at OVO to automate the testing of bots are written by me, and as such are open-source:
+The tools we use at OVO to automate the testing of chatbots are written by me, and as such are open-source:
 - [Web Messenger Tester](https://github.com/ovotech/genesys-web-messaging-tester) for testing Inbound Message flows via
   a Web Messenger Deployment
-    - Since the WhatsApp integration uses Incoming Message Flows it means we can also test WhatsApp-specific bots with this tool
+    - Since the WhatsApp integration uses Incoming Message Flows it means we can also test WhatsApp-specific chatbots with this tool
 - [IVR Tester](https://github.com/SketchingDev/ivr-tester) for testing IVR flows
-    - This can test our IVR-based bots flows by impersonating a customer calling OVO, interpreting what it hears, and
+    - This can test our IVR-based chatbots flows by impersonating a customer calling OVO, interpreting what it hears, and
       responding accordingly to traverse the journey. Any unexpected response is flagged
 
-Both tools define their tests in files that can be stored alongside the bots in source-control and act as living documentation:
+Both tools define their tests in files that can be stored alongside the chatbots in source-control and act as living documentation:
 ```yaml
 scenarios:
   "Customer asked to score experience if they say yes":
